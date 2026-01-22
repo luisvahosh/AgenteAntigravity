@@ -1,8 +1,12 @@
 import os
 import sys
 
-# Add the project root to sys.path so 'backend' package is found
-# __file__ is api/index.py, dirname is api/, dirname(dirname) is root/
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Get the absolute path to the project root
+# __file__ = api/index.py -> dirname = api -> dirname = root
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-from backend.app.main import app
+# Add 'backend' directory to sys.path so 'app' module can be found
+# The application code uses "from app.core import..." so 'app' must be top-level
+sys.path.append(os.path.join(project_root, 'backend'))
+
+from app.main import app
