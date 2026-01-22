@@ -1,0 +1,4 @@
+(psycopg2.OperationalError) connection to server at "aws-0-us-west-2.pooler.supabase.com" (35.160.209.8), port 6543 failed: FATAL:  password authentication failed for user "postgres"
+connection to server at "aws-0-us-west-2.pooler.supabase.com" (35.160.209.8), port 6543 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)

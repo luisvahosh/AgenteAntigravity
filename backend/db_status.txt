@@ -1,0 +1,9 @@
+=== DATABASE STATUS ===
+PROPERTIES COUNT: 3
+ - Prop 3: Envigado | Status: available
+ - Prop 1: VILLA FLORA | Status: rented
+ - Prop 2: sABANETA | Status: sold
+
+TRANSACTIONS COUNT: 2
+ - Tx 5dca7fa3-e62f-4739-8362-3097408794d7: Amount=5000.0 | Type=rent | PropID=1
+ - Tx fbd5ba65-9b6b-4e2f-b16c-5939a72660c0: Amount=20000000.0 | Type=sale | PropID=2
