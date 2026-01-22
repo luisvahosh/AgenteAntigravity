@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { endpoints } from '../../config/api';
 import { User, Shield, Mail, Plus, Trash2, Key } from 'lucide-react';
 
 export default function UserManagement() {
@@ -18,7 +19,7 @@ export default function UserManagement() {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/users/');
+            const response = await fetch(endpoints.users);
             if (response.ok) {
                 const data = await response.json();
                 setUsers(data);
@@ -33,7 +34,7 @@ export default function UserManagement() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:8000/api/v1/users/', {
+            const response = await fetch(endpoints.users, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUser)

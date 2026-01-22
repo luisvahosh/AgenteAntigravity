@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_URL } from '../config/api';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function Dashboard() {
@@ -14,7 +15,7 @@ export default function Dashboard() {
 
     const fetchStats = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/dashboard/stats');
+            const response = await fetch(`${API_URL}/api/v1/dashboard/stats`);
             if (response.ok) {
                 const data = await response.json();
                 setStats(data);

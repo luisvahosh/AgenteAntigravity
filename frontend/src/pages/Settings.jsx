@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { endpoints } from '../config/api';
 import { Save, Building, ShieldCheck, CreditCard, Loader2 } from 'lucide-react';
 import UserManagement from '../components/settings/UserManagement';
 
@@ -17,7 +18,7 @@ export default function Settings() {
 
     const fetchSettings = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/tenants/me');
+            const response = await fetch(`${endpoints.tenants}/me`);
             if (response.ok) {
                 const data = await response.json();
                 setTenant(data);
@@ -37,7 +38,7 @@ export default function Settings() {
         e.preventDefault();
         setSaving(true);
         try {
-            const response = await fetch('http://localhost:8000/api/v1/tenants/me', {
+            const response = await fetch(`${endpoints.tenants}/me`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

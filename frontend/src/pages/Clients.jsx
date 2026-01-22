@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { endpoints } from '../config/api';
 import { Plus, Search, User, Phone, Mail, FileText } from 'lucide-react';
 import ClientForm from '../components/clients/ClientForm';
 
@@ -10,7 +11,7 @@ export default function Clients() {
     // Fetch clients from API
     const fetchClients = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/clients/');
+            const response = await fetch(endpoints.clients);
             if (response.ok) {
                 const data = await response.json();
                 setClients(data);

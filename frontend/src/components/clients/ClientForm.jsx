@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { endpoints } from '../../config/api';
 import { X, Save, Loader2 } from 'lucide-react';
 
 export default function ClientForm({ onClose, onSuccess }) {
@@ -20,7 +21,7 @@ export default function ClientForm({ onClose, onSuccess }) {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:8000/api/v1/clients/', {
+            const response = await fetch(endpoints.clients, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

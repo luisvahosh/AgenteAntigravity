@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { endpoints } from '../config/api';
 import { Plus, Search, Building2, MapPin, Bed, Bath, LayoutGrid, Filter } from 'lucide-react';
 import PropertyForm from '../components/properties/PropertyForm';
 import PropertyDetails from '../components/properties/PropertyDetails';
@@ -16,7 +17,7 @@ export default function Properties() {
     // Fetch properties from API
     const fetchProperties = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/properties/');
+            const response = await fetch(endpoints.properties);
             if (response.ok) {
                 const data = await response.json();
                 setProperties(data);

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { endpoints } from '../config/api';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend, PieChart, Pie, Cell } from 'recharts';
 import { DollarSign, TrendingUp, Home, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
@@ -35,7 +36,7 @@ export default function Reports() {
 
     const fetchStats = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/transactions/summary');
+            const response = await fetch(`${endpoints.transactions}/summary`);
             if (response.ok) {
                 const result = await response.json();
                 // Merge real data with mock chart data if needed, or just use real summary metrics
